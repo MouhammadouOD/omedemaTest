@@ -1,25 +1,32 @@
-import logo from './logo.svg';
 import './App.css';
+import {BrowserRouter , Route , Switch} from 'react-router-dom'
+import Nav from './Components/Nav'
+import Home from './Components/Home'
+import Teams from './Components/Teams'
+import Error from './Components/Error'
+import Users from './Components/Users';
+import {useEffect} from 'react'
 
 function App() {
+useEffect(() => {
+  fetch(
+    "https://cgjresszgg.execute-api.eu-west-1.amazonaws.com/teams/"
+  ).then((response) => console.log(response.json()))
+}, [])
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <Nav />
+
+      <Switch>
+        <Route exact path='/home' component={Home} />
+        <Route path="/teams" component={Teams} />
+        <Route exact path='/users' component={Users} />
+        <Route component={Error} />
+      </Switch>
+
+    </BrowserRouter>
   );
 }
 
-export default App;
+export default App; 

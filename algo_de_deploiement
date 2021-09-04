@@ -7,5 +7,22 @@ utiliser state redux
 
 
 2/contruction des composants
+    Home , Nav , Footer , Teams , Users 
+
+    a/ Nav
+        une barre de navigation (logo , Home , Teams , Users)
+
+    b/Footer
+        une div représentative avec quelques informations
+    
+    c/ Home
+        quelques mots pour présenter l'application
+
+    d/Teams
+        un tableau qui contient toutes les équipes
+        
+        
+
+
     
 
