@@ -9,7 +9,7 @@
 
 2/component construction:
 -------------------------
-    Home , Nav , Teams , Team , Users ,User , ViewTeam 
+    Home , Nav , Teams , Team , Users ,User , ViewTeam , Error
 
     -a/ Nav
         A navbar (logo , Home , Teams , Users)
@@ -22,6 +22,9 @@
 
     -d/Users
         A component what shows all teams from the teams api wrapped in a tableau
+    
+    -c/Error
+        component displaye when trying acces a non-existant url
 
     -e/Team
         A pattern for a given team it will be imported into Teams component to display teams
