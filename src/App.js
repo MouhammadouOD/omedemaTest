@@ -5,16 +5,11 @@ import Home from './Components/Home'
 import Teams from './Components/Teams'
 import Error from './Components/Error'
 import Users from './Components/Users';
-//import {useSelector , useDispatch} from 'react-redux';
-//import {useEffect , useState } from 'react';
-import {Provider} from 'react-redux';
-import store from './redux/store'
 
 function App() {
 
 
   return (
-    <Provider store={store}>
       <BrowserRouter>
         <Nav />
 
@@ -26,8 +21,7 @@ function App() {
           <Route component={Error} />
         </Switch>
 
-    </BrowserRouter>
-    </Provider>
+      </BrowserRouter>
    
   );
 }

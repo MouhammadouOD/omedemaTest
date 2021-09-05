@@ -3,8 +3,10 @@ import User from "./User";
 //import {useSelector , useDispatch} from 'react-redux';
 
 function Users(props) {
+  // declare hooks
   const [users, setUsers] = useState([]);
 
+  // collect data from api and store it in the Hook
   useEffect(() => {
     fetch("https://cgjresszgg.execute-api.eu-west-1.amazonaws.com/users/")
       .then((response) => response.json())
@@ -15,22 +17,23 @@ function Users(props) {
     return <User id={user.id} name={user.displayName} />;
   });
 
+  //filter users by id and save it into idusers
   var idusers = [...users];
   idusers.sort(function compare(a, b) {
     if (a.id < b.id) return -1;
     if (a.id > b.id) return 1;
     return 0;
   });
-  console.log(idusers);
 
+  //filter users by name and save it into nameusers
   var nameusers = [...users];
   nameusers.sort(function compare(a, b) {
     if (a.displayName < b.displayName) return -1;
     if (a.displayName > b.displayName) return 1;
     return 0;
   });
-  console.log(nameusers);
 
+  //functions to update users hook
   const filterById = () => {
     setUsers(idusers);
   };
@@ -39,6 +42,7 @@ function Users(props) {
     setUsers(nameusers);
   };
 
+  //filter the users at input changes
   const filter = (e) => {
     const value = e.target.value;
 

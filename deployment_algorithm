@@ -1,0 +1,84 @@
+------------------------------ --THIS FILE DESCRIBE HOW WE DESIGN THE SOLUTION-- ------------------------------------------- 
+
+1/ setting up the environment :
+-------------------------------
+    -install and import boostrap : npx install boostrap / import 'bootstrap/dist/css/bootstrap.min.css'; in index.js 
+    -install react-router-dom : npx install react-router-dom
+    -components are in ./src/components
+
+
+2/component construction:
+-------------------------
+    Home , Nav , Teams , Team , Users ,User , ViewTeam 
+
+    -a/ Nav
+        A navbar (logo , Home , Teams , Users)
+
+    -b/ Home
+        the home component
+
+    -c/Teams
+        A component what shows all teams from the teams api wrapped in a tableau
+
+    -d/Users
+        A component what shows all teams from the teams api wrapped in a tableau
+
+    -e/Team
+        A pattern for a given team it will be imported into Teams component to display teams
+
+    -f/User
+        A pattern for a given user it will be imported into Users component to display users
+    
+    -g/ ViewTeam
+        this component is created for display a selected team in Teams component and its members
+        but we don't finished yet building it. 
+
+
+
+3/Solution Design:
+------------------
+
+ -->   We've used the command "npx create-react-app" to create the project 
+
+--First we've created all components mentioned above
+
+-------------------------- In App.js ------------------------------------------------------
+
+--import some of them into App.js (Nav , Home , Teams , Users)
+--create route to acces to each component through the navbar by matching them with urls
+
+-------------------------- In Teams.js ------------------------------------------------------
+
+--we use hook to store all teams 
+--with useEffect we keep the hook all time available  adn create a promise to fetch data from api
+to the getter(teams) by means of its setter(setTeams)
+
+--after we created two variables : idteams and nameteams 
+    the fist (idteams) contain a copy of teams array sorted by id
+    the second (nameteams) contain a copy of teams array sorted by name
+-- Other functions are implemented to replace the getter with the appropriate sorted copy of the array
+ according to the selected value of input (for filter)?
+
+-- filter() function allow us to handle what variable must replace the getter. it runs on input changes. 
+-- filterById and filterByName sets the getter to idteams or nameteams to get a soted array.
+
+-------------------------- In Users.js ------------------------------------------------------
+
+--same approach with Teams.js
+
+
+----------------------------------------- END -------------------------------------------------
+
+
+
+
+
+
+
+
+        
+        
+
+
+    
+

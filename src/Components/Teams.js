@@ -1,18 +1,19 @@
 import React, { useEffect, useState } from "react";
 import { Switch, Route, useRouteMatch, Link } from "react-router-dom";
-//import Team from './Team';
 import ViewTeam from "./ViewTeam";
-//import {useSelector , useDispatch} from 'react-redux';
 
 function Teams() {
+  //declare my hooks
   const [teams, setTeams] = useState([]);
 
+  // collect data from api and store it in the Hook
   useEffect(() => {
     fetch("https://cgjresszgg.execute-api.eu-west-1.amazonaws.com/teams/")
       .then((response) => response.json())
       .then((result) => setTeams(result));
   }, []);
 
+  //Nested route to acces to ViewTeam
   const { path, url } = useRouteMatch();
   console.log(url);
   const table = teams.map((team) => {
@@ -28,22 +29,23 @@ function Teams() {
     );
   });
 
+  //filter teams by id and save it into idteams
   var idteams = [...teams];
   idteams.sort(function compare(a, b) {
     if (a.id < b.id) return -1;
     if (a.id > b.id) return 1;
     return 0;
   });
-  console.log(idteams);
 
+  //filter teams by name and save it into nameteams
   var nameteams = [...teams];
   nameteams.sort(function compare(a, b) {
     if (a.name < b.name) return -1;
     if (a.name > b.name) return 1;
     return 0;
   });
-  console.log(nameteams);
 
+  //functions to update teams hook
   const filterById = () => {
     setTeams(idteams);
   };
@@ -52,6 +54,7 @@ function Teams() {
     setTeams(nameteams);
   };
 
+  //filter the teams at input changes
   const filter = (e) => {
     const value = e.target.value;
 
