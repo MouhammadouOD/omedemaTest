@@ -1,5 +1,10 @@
+import HANDLE_TEAM  from "./type"
 
-export function handleTeam(){
-    
+function handleTeam(){
+    return{
+        type : HANDLE_TEAM ,
+        payload : []
+    }
 }
 
+export default handleTeam

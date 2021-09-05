@@ -1,1 +1,2 @@
-export const HANDLE_TEAM = 'HANDLE_TEAM' 
+export const HANDLE_TEAM = "HANDLE_TEAM"
+

@@ -5,27 +5,30 @@ import Home from './Components/Home'
 import Teams from './Components/Teams'
 import Error from './Components/Error'
 import Users from './Components/Users';
-import {useEffect} from 'react'
+//import {useSelector , useDispatch} from 'react-redux';
+//import {useEffect , useState } from 'react';
+import {Provider} from 'react-redux';
+import store from './redux/store'
 
 function App() {
-useEffect(() => {
-  fetch(
-    "https://cgjresszgg.execute-api.eu-west-1.amazonaws.com/teams/"
-  ).then((response) => console.log(response.json()))
-}, [])
+
 
   return (
-    <BrowserRouter>
-      <Nav />
+    <Provider store={store}>
+      <BrowserRouter>
+        <Nav />
 
-      <Switch>
-        <Route exact path='/home' component={Home} />
-        <Route path="/teams" component={Teams} />
-        <Route exact path='/users' component={Users} />
-        <Route component={Error} />
-      </Switch>
+        <Switch>
+          <Route exact path='/home' component={Home} />
+          <Route exact path='/' component={Home} />
+          <Route path="/teams" component={Teams} />
+          <Route exact path='/users' component={Users} />
+          <Route component={Error} />
+        </Switch>
 
     </BrowserRouter>
+    </Provider>
+   
   );
 }
 
